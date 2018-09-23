@@ -2,10 +2,10 @@ int[][]mines;
 boolean[][]flags;
 boolean[][]revealed;
 
-int gridW=16;
-int gridH=16;
+int gridW=8;
+int gridH=8;
 int cellSize=50;
-int numMines=40;
+int numMines=10;
 
 void settings(){
   size(gridW*cellSize,gridH*cellSize);
@@ -24,8 +24,13 @@ void setup(){
   }
 }
 void placeMines(){
-  for(int i=0;i<numMines;i++){
-    mines[int(random(gridW))][int(random(gridH))]=1;
+  int i=0;
+  while(i<numMines){
+    int x=int(random(gridW));
+    int y=int(random(gridH));
+    if(mines[x][y]==1)continue;
+    mines[x][y]=1;
+    i++;
   }
 }
 void clearMines(){
@@ -125,11 +130,6 @@ void draw(){
         fill(col1);
         stroke(col1);
       }
-      
-      //if(mines[x][y]>0){
-        //fill(0,255,0);
-        //stroke(0,255,0);
-      //}
       
       rect(x*cellSize,y*cellSize,cellSize,cellSize);
       
