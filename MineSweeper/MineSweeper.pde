@@ -2,10 +2,10 @@ int[][]mines;
 boolean[][]flags;
 boolean[][]revealed;
 
-int gridW=8;
-int gridH=8;
+int gridW=16;
+int gridH=16;
 int cellSize=50;
-int numMines=10;
+int numMines=40;
 
 void settings(){
   size(gridW*cellSize,gridH*cellSize);
